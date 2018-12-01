@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -132,6 +135,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         ArrayAdapter<Double> adp = new ArrayAdapter<Double>(MainActivity.this,R.layout.support_simple_spinner_dropdown_item,data);
         lv.setAdapter(adp);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Credits");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this,"Application Of Michal Leybovich",Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
     }
 
 }
